@@ -1,0 +1,9 @@
+{
+  "name": "telegram_console",
+  "version": "1.0.0",
+  "dependencies": {
+    "commander": "^9.4.1",
+    "dotenv": "^16.0.3",
+    "node-telegram-bot-api": "^0.59.0"
+  }
+}
