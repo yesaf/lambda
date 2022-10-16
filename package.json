@@ -1,6 +1,7 @@
 {
   "name": "lambda",
   "version": "1.0.0",
+  "type": "module",
   "dependencies": {
     "inquirer": "^9.1.3"
   }
