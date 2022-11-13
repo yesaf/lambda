@@ -23,12 +23,12 @@ const endpoints = [
     'https://jsonbase.com/lambdajson_type4/64',
 ];
 
-
 function countTrueFalse(endpoints) {
     let trueValues = 0;
     let falseValues = 0;
 
-    Promise.all(endpoints.map((endpoint) => axios.get(endpoint)
+    Promise.all(endpoints.map((endpoint) => axios
+        .get(endpoint)
         .then((res) => {
             const dataStr = JSON.stringify(res.data);
             const isDoneValue = dataStr.match(/"isDone":(true|false)/)[0].split(':')[1];
