@@ -1,5 +1,5 @@
 import { Application } from 'express';
-import GeolocationRouter from './4_geolocation';
+import TaskRouter from './5_correctarium';
 
 class AppRouter {
     constructor(private app: Application) {
@@ -9,7 +9,7 @@ class AppRouter {
         this.app.get('/', (_req, res) => {
             res.send('API Running');
         });
-        this.app.use('/api', GeolocationRouter);
+        this.app.use('/api', TaskRouter);
     }
 }
 
