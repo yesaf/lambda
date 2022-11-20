@@ -1,5 +1,5 @@
 import { Application } from 'express';
-import TaskRouter from './5_correctarium';
+import TaskRouter from './9_json';
 
 class AppRouter {
     constructor(private app: Application) {
