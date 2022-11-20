@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { connectToDatabase } from '../database';
+import { connectToCollection } from '../database';
 import * as mongodb from 'mongodb';
 
 class JsonController {
@@ -11,7 +11,7 @@ class JsonController {
     }
 
     async init() {
-        this.jsonCollection = await connectToDatabase('jsonStorage', 'json');
+        this.jsonCollection = await connectToCollection('jsonStorage', 'json');
     }
 
     async checkIfLinkExists(link: string) {

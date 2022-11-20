@@ -2,7 +2,7 @@ import * as mongodb from 'mongodb';
 
 require("dotenv").config();
 
-export async function connectToDatabase (dbName: string, collectionName: string) {
+export async function connectToCollection (dbName: string, collectionName: string) {
     const client: mongodb.MongoClient = new mongodb.MongoClient(process.env.MONGO_URI || '');
 
     await client.connect();
