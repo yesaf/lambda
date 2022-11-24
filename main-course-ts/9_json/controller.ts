@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { connectToCollection } from '../database';
+import { connectToCollection } from '../database/mongodb';
 import * as mongodb from 'mongodb';
 
 class JsonController {
