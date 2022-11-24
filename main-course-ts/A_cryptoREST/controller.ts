@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import CryptoService from './service';
 import { Coin } from 'Coins';
-import { mapSymbolToName } from './utils/apiRequests';
+import { tokens, mapSymbolToName } from './utils/apiRequests';
 
 class CryptoController {
 
@@ -37,6 +37,12 @@ class CryptoController {
                 });
             }
             return {}
+        });
+    }
+
+    getCurrencies(req: Request, res: Response) {
+        res.send({
+            currencies: [...Object.keys(tokens)],
         });
     }
 }

@@ -3,7 +3,7 @@ import { Coin, CoinMarketCapType, CoinPaprikaType, CoinStatsType } from 'Coins';
 
 require('dotenv').config();
 
-const tokens = {
+export const tokens = {
     'BTC': 'Bitcoin',
     'ETH': 'Ethereum',
     'LTC': 'Litecoin',
