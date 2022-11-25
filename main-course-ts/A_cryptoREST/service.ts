@@ -11,7 +11,7 @@ class CryptoService {
         db.connect();
 
         // update data every 5 minutes
-        this.updateData();
+        // this.updateData();
         setInterval(() => this.updateData(), 5 * 60 * 1000);
     }
 
