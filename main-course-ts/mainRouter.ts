@@ -1,5 +1,8 @@
 import { Application } from 'express';
 import TaskRouter from './A_cryptoREST';
+import runBot from './B_cryptoBot';
+
+runBot();
 
 class AppRouter {
     constructor(private app: Application) {
