@@ -1,6 +1,7 @@
 {
   "name": "telegram_console",
   "version": "1.0.0",
+  "type": "module",
   "dependencies": {
     "commander": "^9.4.1",
     "dotenv": "^16.0.3",

@@ -14,7 +14,6 @@ function fromKelvin(tempKelvin) {
     return Math.round(tempKelvin - 273.15);
 }
 
-
 function getWeather(city, skipEven) {
     const link = 'https://api.openweathermap.org/data/2.5/forecast'
     const params = {

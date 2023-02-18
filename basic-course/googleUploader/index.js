@@ -22,7 +22,8 @@ inq.prompt([
     },
 ]).then(answers => {
     const origName = answers.path.split(/[\\, /]/).pop();
-    const [fileName, fileExtension] = [answers.name ? answers.name : origName.split('.')[0], origName.split('.')[1]];
+    const fileName = answers.name || origName.split('.')[0]
+    const fileExtension = origName.split('.')[1];
 
     uploadImage(answers.path, fileName + '.' + fileExtension)
         .then((id) => {

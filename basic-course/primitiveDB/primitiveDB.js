@@ -18,20 +18,16 @@ function enterUsers() {
                 'NaN',
                 'helicopter',
             ],
-            when: (answers) => {
-                return answers.name !== '';
-            },
+            when: (answers) => answers.name !== '',
         },
         {
             type: 'input',
             name: 'age',
             message: 'Enter user\'s age: ',
-            when: (answers) => {
-                return answers.name !== '';
-            },
+            when: (answers) => answers.name !== '',
         },
     ]).then(answers => {
-        if (answers.name === '') {
+        if (!answers.name) {
             askSearch();
         } else {
             fs.readFile('DB.txt', (e, data) => {
@@ -77,7 +73,7 @@ function findUser() {
             const filtered = JSON.parse(usersData.toString())
                 .filter((user) => {
                  return user.name.toLowerCase()
-                    .includes(answer.name.toLowerCase());
+                     .includes(answer.name.toLowerCase());
             });
             if (filtered.length) {
                 console.log('Found!');
