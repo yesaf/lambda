@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import CryptoService from './service';
-import { Coin } from 'Coins';
+import { Coin } from './types/coins';
 import { tokens, mapSymbolToName } from './utils/apiRequests';
 
 class CryptoController {

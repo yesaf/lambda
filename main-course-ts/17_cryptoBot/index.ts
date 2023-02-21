@@ -1,9 +1,8 @@
-// @ts-ignore
-import TgBot, { CallbackQuery, InlineKeyboardButton } from 'node-telegram-bot-api';
+import TgBot, { InlineKeyboardButton } from 'node-telegram-bot-api';
 import axios, { AxiosResponse } from 'axios';
 import TgService from './service';
-import { AverageResponse, ListCurrenciesResponse } from 'ResponseTypes';
-import { Favorite, Following } from 'TgDbTypes';
+import { AverageResponse, ListCurrenciesResponse } from './types/responses';
+import { Favorite, Following } from './types/tgDatabase';
 
 require('dotenv').config();
 

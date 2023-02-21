@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Coin, CoinMarketCapType, CoinPaprikaType, CoinStatsType } from 'Coins';
+import { Coin, CoinMarketCapType, CoinPaprikaType, CoinStatsType } from '../types/coins';
 
 require('dotenv').config();
 
@@ -12,7 +12,6 @@ export const tokens = {
 };
 
 export function mapSymbolToName (symbol: string) {
-    // @ts-expect-error - we know that symbol is a key of tokens
     return tokens[symbol];
 }
 
@@ -32,7 +31,6 @@ export async function askCoinMarketCap() {
                 last_updated: coin.last_updated,
             };
         }));
-    //@ts-expect-error - Here comes TS7053 error, but it's not a problem
     return res.filter((coin: Coin) => tokens[coin.symbol]);
 }
 
@@ -47,7 +45,6 @@ export async function askCoinbase() {
                 //@ts-ignore
                 const { base, amount } = item.value.data.data;
                 return {
-                    //@ts-expect-error - Here comes TS7053 error, but it's not a problem
                     name: tokens[base],
                     symbol: base,
                     price: amount,
