@@ -30,11 +30,11 @@ class CryptoService {
 
     private async updateData() {
         const data = [];
-        data.push(...await askCoinbase());
-        data.push(...await askCoinMarketCap());
-        data.push(...await askCoinStats());
-        data.push(...await askKucoin());
-        data.push(...await askCoinPaprika());
+        data.push(...await askCoinbase().catch(() => null));
+        data.push(...await askCoinMarketCap().catch(() => null));
+        data.push(...await askCoinStats().catch(() => null));
+        data.push(...await askKucoin().catch(() => null));
+        data.push(...await askCoinPaprika().catch(() => null));
 
         const dateToDatetime = (date: string) => {
             return date.replace('T', ' ').replace('Z', '');
@@ -42,7 +42,10 @@ class CryptoService {
 
         let query = 'insert into history (coin_name, coin_symbol, price, market, update_date) values ' +
             data.map(coin =>
-                `('${coin.name}', '${coin.symbol}', ${coin.price}, '${coin.market}', '${dateToDatetime(coin.last_updated)}')`)
+                coin ?
+                    `('${coin.name}', '${coin.symbol}', ${coin.price}, '${coin.market}', '${dateToDatetime(coin.last_updated)}')`
+                    : '',
+            )
                 .join(', ');
 
         db.query(query, (err) => {
