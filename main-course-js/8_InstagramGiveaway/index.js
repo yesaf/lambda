@@ -31,7 +31,7 @@ function existInNArrays(arrays, n) {
         }
     }
 
-    return arrays[0].filter(e => {
+    return Array.from(set.keys()).filter(e => {
         return set.get(e) >= n;
     });
 }
